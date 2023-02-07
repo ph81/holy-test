@@ -1,23 +1,28 @@
 import Box from './components/Box';
 import './App.css';
+import { useState } from 'react';
 
 const App = () => {
+  const [direction, setDirection] = useState('');
+
   return (
     <>
       <header>
-        <Box type="this is header" direction="top" />
+        <button onClick={() => setDirection('top')}>Header</button>
       </header>
       <div className="columns">
         <nav>
-          <Box type="nav" direction="left" />
+          <button onClick={() => setDirection('left')}>Nav</button>
         </nav>
-        <main></main>
+        <main>
+          <Box direction={direction} />
+        </main>
         <aside>
-          <Box type="aside" direction="right" />
+          <button onClick={() => setDirection('right')}>Aside</button>
         </aside>
       </div>
       <footer>
-        <Box type="footer" direction="bottom" />
+        <button onClick={() => setDirection('bottom')}>Footer</button>
       </footer>
     </>
   );
